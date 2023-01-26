@@ -1,0 +1,280 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: aqua;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'Poppins';
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Nav section */
+
+nav {
+    margin: 4em;
+}
+
+nav ul {
+    display: flex;
+    gap:4.1em;
+    list-style-type: none;
+    margin: 0;
+    position: relative;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+    position: relative;
+    font-size: 1.6rem;
+}
+
+nav ul li a:before {
+    position: absolute;
+    content: "";
+    width: 0%;
+    height: 1px;
+    border-bottom: 2px solid rgb(152, 152, 152);
+    bottom: -6px;
+    transition: width .3s;
+}
+
+nav ul li a.active:before {
+    position: absolute;
+    content: "";
+    width: 35%;
+    height: 1px;
+    border-bottom: 2px solid black;
+    bottom: -6px;
+}
+/* Animations */
+nav ul li a:hover:before {
+    width: 35%;
+}
+
+
+/* Hero section */
+/* Main section */
+main {
+    display: flex;
+    gap: 8em;
+    margin-top: 11em;
+}
+
+.left-col {
+    width: 45%;
+}
+
+.right-col {
+    flex-grow: 1;
+}
+/* Left column */
+
+h1 {
+    font-family: 'Playfair Display';
+    font-size: 5.2rem;
+    font-weight: normal;
+    margin: 0;
+}
+
+.subhead {
+    font-size: 1.8rem;
+}
+
+.cta-buttons {
+    margin: 5em 0;
+}
+
+.cta-buttons, .secondary-cta {
+    display: flex;
+    gap: 2em;
+}
+
+.primary-cta {
+    align-items: center;
+    background-color: #F1E2D1;
+    border-radius: 1.8em;
+    color: black;
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding: 1em 2em;
+    text-decoration: none;
+}
+/* Animations */
+.primary-cta:hover {
+    background: #E2D1BD;
+}
+
+.secondary-cta {
+    align-items: center;
+    color: black;
+    display: block;
+    font-size: 1.8rem;
+    padding: 1em 0;
+    text-decoration: none;
+    
+}
+
+.secondary-cta svg {
+    width: 2rem;
+    transition: transform .3s;
+}
+/* Animations */
+.secondary-cta:hover svg {
+    transform: translateX(1em);
+}
+.secondary-cta:hover {
+    text-decoration: underline;
+}
+/* News section */
+
+.news {
+    border: 1px solid black;
+    border-radius: .8em;
+    display: flex;
+    gap: 3em;
+    padding: 5em;
+    position: relative;
+}
+
+.news:before {
+    background: url('./images/confetti.svg');
+    content: "";
+    height: 10rem;
+    left: -2em;
+    position: absolute;
+    top: -2em;
+    width: 10rem;
+}
+
+p.employees {
+    font-size: 3.3rem;
+    font-weight: 200;
+    line-height: 100%;
+    margin: 0;
+}
+
+p.information {
+    font-size: 1.4rem;
+    margin: 0;
+    
+}
+
+/* Right column */
+
+.right-col {
+    display: grid;
+    gap: 2.3em;
+    grid-template-columns: repeat(2, auto);
+
+    /* Grid Layout */
+    grid-template-areas: 
+        "left ."
+        "left .";
+}
+.card {
+    background: lightcoral;
+    background-size: 150%;
+    border-radius: .8em;
+    padding: 1.1em;
+    /* Push to the bottom*/
+    display: flex;
+    align-items: flex-end;
+
+    transition: background-size 800ms;
+}
+
+.card1 {
+    background-image: url('./images/clothing1.jpg');
+    background-repeat: no-repeat;
+    grid-area: left;
+}
+.card2 {
+    background-image: url('./images/clothing2.jpg');
+}
+.card3 {
+    background-image: url('./images/clothing3.jpg');
+}
+
+.card-details {
+    align-items: center;
+    background: white;
+    border-radius: .6em;
+    display: flex;
+    justify-content: space-between;
+    padding: 2em;
+    width: 100%;
+
+    transition: transform 800ms;
+}
+
+.card-details a {
+    color: black;
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.card-details p {
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+.product-price {
+    font-size: 1.8rem;
+}
+/* Animations */
+.card:hover {
+    background-size: 160%;
+}
+
+.card:hover .card-details {
+    transform: translateY(-2em);
+}
+
+/* Intro Animation */
+
+.overlay {
+    position: absolute;
+    z-index: 999;
+    background: white;
+    width: 100%;
+    height: 100%;
+    animation: reveal 1s ease-in forwards;
+    transform-origin: bottom;
+}
+
+@keyframes reveal {
+    from {
+        transform: scaleY(1);
+    }
+    to {
+        transform: scaleY(0);
+    }
+}
+
+main {
+    animation: growIn 2s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+    transform: scale(.4);
+}
+
+@keyframes growIn {
+    to {
+        transform: scale(1);
+    }
+}
